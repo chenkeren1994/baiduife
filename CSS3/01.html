@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>task01</title>
+    <style>
+        body{
+            padding: 200px;
+        }
+        .text{
+            position:relative;
+            display: block;
+            color:rgb(182, 182, 27);
+            transition: color 0.5s;
+        }
+        .text::after{
+            content:'';
+            display:block;
+            width:80px;
+            height:2px;
+            position:absolute;
+            bottom:-10px;
+            background: blue;
+            transition:all 0.5s ease-in;
+            transform: scale3d(0,1,1);
+            transform-origin:50% 0;
+        }
+        button{
+            display: block;
+            margin-top: 20px;
+            width: 80px;
+            height: 30px;
+            color:azure;
+            background: red;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<a class="text">卖萌的海豹</a>
+<button onclick="changeType()">切换效果</button>
+</body>
+<script>
+    let tag = true;
+    let css=function(t){
+        s=document.createElement('style');
+        s.innerText=t;
+        document.body.appendChild(s);
+    }
+    function changeType() {
+        if(tag === true){
+            css(`.text::after{transform:scale3d(1,1,1)}`);
+            let text = document.getElementsByClassName('text')[0];
+            text.style.color = 'blue';
+            tag = false;
+        } else {
+            css(`.text::after{transform:scale3d(0,1,1)}`);
+            let text = document.getElementsByClassName('text')[0];
+            text.style.color = 'rgb(182, 182, 27)';
+            tag = true;
+        }
+        
+    }
+</script>
+</html>
