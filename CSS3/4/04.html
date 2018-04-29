@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3D翻转</title>
+    <style>
+        .w{
+            position: relative;
+            width: 250px;
+            height: 350px;
+            margin: 0 auto;
+        }
+        .w img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 2s linear;
+        }
+        .w img:nth-child(1){
+            z-index: 2;
+        }
+         .w img:nth-child(2){
+            z-index: 1;
+        } 
+        .w:hover img:nth-child(1){
+            transform: rotateY(-180deg);
+            z-index: 1;      
+        } 
+        .w:hover img:nth-child(2){
+            transform: rotateY(-180deg);
+            z-index: 2;
+        } 
+    </style>
+</head>
+<body>
+    <section class="w">
+        <img src="./img/zheng.jpg" alt="">
+        <img src="./img/fan.jpg" alt="">
+    </section>
+</body>
+</html>
