@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul"></ul>  
+    <script>  
+        (function()  
+        {  
+            var start = Date.now();  
+            var str = '';  
+            for(var i=0; i<10000; i++)   
+            {  
+                str += '<li>第'+i+'个子节点</li>';  
+            }  
+            document.getElementById('ul').innerHTML = str;  
+            console.log('耗时：'+(Date.now()-start)+'毫秒'); // 44毫秒  
+        })();  
+    </script> 
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3 - Game</title>
+</head>
+<body>
+    <script>
+        let res = [];
+        for (let i = 1; i <= 100; i++){
+            let str_i = String(i);
+            let m = i;
+            if (m % 3 === 0 || str_i.indexOf(3) !== -1){
+                m = 'PA';
+            }
+            res.push(m);
+        }
+        console.log(res.join(','));
+    </script>
+</body>
+</html>

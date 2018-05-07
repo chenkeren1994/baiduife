@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>9*9</title>
+
+</head>
+<body>
+    <table id="myTable" border="1">
+    </table>
+
+    <script>
+        let ndTable = document.getElementById("myTable");
+        for (let i = 1;i <=9 ;i ++){
+            let ndTr = document.createElement('tr');
+            for(let j = 1; j <= i; j++){
+                let ndTd = document.createElement('td');
+                res = `${i} * ${j} = ${i*j}`;
+                ndTd.innerHTML = res;
+                ndTr.appendChild(ndTd);
+            }
+            ndTable.appendChild(ndTr);
+        }
+    </script>
+</body>
+</html>
