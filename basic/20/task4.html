@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+    <button id="fade-btn">淡出</button>
+
+    <script>
+        var oFadebtn = document.getElementById("fade-btn");
+        var onOff = true;
+        var oFadeobj = document.getElementById("fade-obj");
+        oFadebtn.onclick = function() {
+            if(onOff){
+                oFadebtn.setAttribute('disabled','disabled');
+                oFadeobj.style.opacity = '1';
+                oFadeobj.style.filter = 'alpha(opacity=100)';
+                var nOpacity = parseInt(oFadeobj.style.opacity)*100;
+                
+                timer = setInterval(function(){ 
+                    if(nOpacity > 0){
+                        nOpacity-= 2;
+                        oFadeobj.style.opacity = nOpacity/100 +'';
+                        oFadeobj.style.filter = 'alpha(opacity=' + nOpacity +')';
+                    }else{
+                        oFadebtn.removeAttribute('disabled');
+                        oFadebtn.innerHTML = '淡入';
+                        clearInterval(timer);
+                    }
+                },30)
+                
+                onOff = !onOff;
+            }else{
+                oFadebtn.setAttribute('disabled','disabled');
+                nOpacity = parseInt(oFadeobj.style.opacity);
+                timer1 = null;
+                timer1 = setInterval(function(){ 
+                    if(nOpacity < 100){
+                        nOpacity += 2;
+                        oFadeobj.style.opacity = nOpacity/100 +'';
+                        oFadeobj.style.filter = 'alpha(opacity=' + nOpacity +')';
+                    }else{
+                        oFadebtn.removeAttribute('disabled');
+                        oFadebtn.innerHTML = '淡出';
+                        clearInterval(timer1);
+                    }
+                },30)
+                
+                onOff = !onOff;
+            }
+					
+        }
+    </script>
+</body>
+</html>

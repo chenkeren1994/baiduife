@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task1</title>
+</head>
+<body>
+    <input id="name" type="text">    
+    <button id="submit-btn">Submit</button>
+
+    <script>
+        let inputText = document.getElementById('name');
+        let btn = document.getElementById('submit-btn');
+
+        btn.addEventListener('click', () => {
+            if(inputText.value == ''){
+                return;
+            }
+            console.log(inputText.value);
+        })
+        document.addEventListener('keyup', (e) => {
+            if(e.keyCode === 13 && inputText.value != ''){
+                console.log(inputText.value);
+            }
+        })
+        document.addEventListener('keyup', (e) => {
+            if(e.keyCode === 27 && inputText.value != ''){
+                inputText.value = '';
+            }
+        })
+    </script>
+</body>
+</html>
